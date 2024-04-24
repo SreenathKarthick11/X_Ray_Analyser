@@ -1,0 +1,50 @@
+{% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
+    content %}
+    <div class="box" style="position:absolute; left:-10px; top:30px; z-index: -1; width: 1530px; height: 485px;border: 3px solid black;background-color: rgba(5, 5, 8, 0.888); padding: 10px; margin: 10px;">
+    </div>
+    <h3 align="center" style="color: aliceblue;font-size: 25px;">Sign Up</h3>
+    <form method="POST" style="font-size: 25px;color:aliceblue;">
+      <div style="position:absolute; left:400px; top:100px; color: aliceblue;">
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter email"
+          style="height: 30px; width: 500px; font-size: 18px;margin: 8px 0;box-sizing: border-box;position:relative; left:65px;"
+        />
+      </div>
+      <div style="position:absolute; left:400px; top:150px;color: aliceblue;">
+        <label for="firstName">First Name</label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          placeholder="Enter first name"
+          style="height: 30px; width: 500px; font-size: 18px;margin: 8px 0;box-sizing: border-box;position:relative; left:100px;"
+        />
+      </div>
+      <div style="position:absolute; left:400px; top:200px;color: aliceblue;">
+        <label for="password1">Password</label>
+        <input
+          type="password"
+          id="password1"
+          name="password1"
+          placeholder="Enter password"
+          style="height: 30px; width: 500px; font-size: 18px;margin: 8px 0;box-sizing: border-box;position:relative; left:117px;"
+        />
+      </div>
+      <div style="position:absolute; left:400px; top:250px;color: aliceblue;">
+        <label for="password2">Password (Confirm)</label>
+        <input
+          type="password"
+          id="password2"
+          name="password2"
+          placeholder="Confirm password"
+          style="height: 30px; width: 500px; font-size: 18px;margin: 8px 0;box-sizing: border-box;position:relative; left:10px;"
+        />
+      </div>
+      <br />
+      <button type="submit" style="position:absolute; left:400px; top:350px;height: 35px; width: 80px;font-size: 20px;background-color:  rgb(32, 136, 205);color: aliceblue;border-radius: 5px;">Submit</button>
+    </form>
+    {% endblock %}
