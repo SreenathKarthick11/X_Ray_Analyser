@@ -1,0 +1,5 @@
+Model file is too large file , the file link is : https://drive.google.com/drive/folders/1sFYm-85apQrL38gZnGmxgfCr8kKsUYHG?usp=drive_link
+
+For calling the model, download the model and save it in static 
+
+model_pkl_file = r"C:\Users\hp\Desktop\xray_web\website\static\SVM_Model.pkl"  # calling the model
