@@ -28,7 +28,12 @@ def login():
         else:
             flash('Email not found', category='error')  # incorrect email error
 
-    return render_template("login.html", user=current_user) # render the login page
+    murali="murali.png"
+    sreenath="sreenath.png"
+    aakash="aakash.png"
+
+
+    return render_template("login.html", user=current_user,murali=murali,sreenath=sreenath,aakash=aakash) # render the login page
 
 @auth.route('/logout') # routing logout page
 @login_required
@@ -63,6 +68,6 @@ def sign_up():
             db.session.commit()
             login_user(new_user, remember=True)
             flash('Account created!', category='success')
-            return redirect(url_for('views.home'))   # after successful sign-up ,redirect to home page
+            return redirect(url_for('views.home'))  # after successful sign-up ,redirect to home page
 
     return render_template("sign_up.html", user=current_user)  # rendering the sign-up page
