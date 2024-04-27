@@ -55,7 +55,7 @@ def home():
         return render_template("home.html", user=current_user,form=form,file_name=file_name,file_name1=file_name1, lt=lt, ut=ut,Predic_class=Predic_class) # render the home template
     if 'p' in request.form:  # if predict button is pressed 
         if request.form["pred"]!=None:  # if the pred textbox is empty
-            model_pkl_file = r"C:\Users\hp\Desktop\xray_web\website\static\SVM_Model.pkl"  # calling the model
+            model_pkl_file = r"C:\Users\hp\Desktop\xray_web\website\static\svm_model2.pkl"  # calling the model
             with open(model_pkl_file, 'rb') as file:
                 loaded_pipe = pickle.load(file)
 
