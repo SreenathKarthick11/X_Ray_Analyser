@@ -17,20 +17,20 @@ EPOCHS = 20
 data_dir = 'drive/MyDrive/Colab Notebooks/newXray' # Dataset location
 
 # Define data generator with validation split
-datagen = ImageDataGenerator(rescale=1./255,
+gendata = ImageDataGenerator(rescale=1./255,
                              shear_range=0.2,
                              zoom_range=0.2,
                              horizontal_flip=True,
                              validation_split=0.20)
 
-train_generator = datagen.flow_from_directory(data_dir,
+train_data = gendata.flow_from_directory(data_dir,
                                               target_size=(IMAGE_WIDTH, IMAGE_HEIGHT),
                                               batch_size=BATCH_SIZE,
                                               class_mode='categorical',
                                               subset='training')  # Training data
 
 # Generate validation dataset
-validation_generator = datagen.flow_from_directory(data_dir,
+validation_data = gendata.flow_from_directory(data_dir,
                                                    target_size=(IMAGE_WIDTH, IMAGE_HEIGHT),
                                                    batch_size=BATCH_SIZE,
                                                    class_mode='categorical',
@@ -43,7 +43,7 @@ base_model = InceptionV3(weights='imagenet', include_top=False, input_shape=(IMA
 x = base_model.output
 x = Flatten()(x)
 x = Dense(128, activation='relu')(x)
-predictions = Dense(train_generator.num_classes, activation='softmax')(x)
+predictions = Dense(train_data.num_classes, activation='softmax')(x)
 
 # Combine base model and custom head to create new model
 model = tf.keras.Model(inputs=base_model.input, outputs=predictions)
@@ -55,11 +55,11 @@ model.compile(optimizer='adam',
 
 # Train the model
 history = model.fit(train_generator,
-                    steps_per_epoch=train_generator.samples // BATCH_SIZE,
+                    steps_per_epoch=train_data.samples // BATCH_SIZE,
                     epochs=EPOCHS,
-                    validation_data=validation_generator,
-                    validation_steps=validation_generator.samples // BATCH_SIZE)
+                    validation_data=validation_data,
+                    validation_steps=validation_data.samples // BATCH_SIZE)
 
 # Evaluate the model
-loss, accuracy = model.evaluate(validation_generator, verbose=1)
+loss, accuracy = model.evaluate(validation_data, verbose=1)
 print("Validation Accuracy: {:.2f}%".format(accuracy * 100))
