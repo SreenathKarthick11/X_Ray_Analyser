@@ -1,5 +1,5 @@
 # X_Ray_Analyser
-# this our group project for 1st year in programming python
+ this our group project for 1st year in programming python
 
 # OBJECTIVE OF PROJECT
 # Our aim is to make a machine learning model that helps us classify
