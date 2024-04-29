@@ -16,13 +16,7 @@ import cv2
 from PIL import Image
 from sklearn.preprocessing import StandardScaler  # Assuming you used StandardScaler
 import pickle
-# import numpy as np
-# import tensorflow as tf
-# from tensorflow.keras.preprocessing import image
-# from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
-# from keras.layers import TFSMLayer
-####
-# Load the saved model
+
 
 ####
 
@@ -81,23 +75,6 @@ def home():
             # Make prediction using the loaded model
             prediction = loaded_pipe.predict(new_image_data)
 
-
-            # loaded_model = tf.keras.models.load_model('C:/Users/hp/Desktop/xray_web/website/static/Model2/Model2.h5')
-
-            # # Load and preprocess the image
-            # img_path = r"C:\Users\hp\Desktop\xray_web\website\static"
-            # img_path=os.path.join(img_path,file_name)
-            # img = image.load_img(img_path, target_size=(150, 150))  # Resize to match model input size
-            # img_array = image.img_to_array(img)
-            # img_array = np.expand_dims(img_array, axis=0)
-            # img_array = preprocess_input(img_array)
-
-            # # Predict
-            # predictions = loaded_model.predict(img_array)
-
-            # # Interpret the predictions
-            # class_indices = {'Fractured_Arm': 0, 'Fractured_Foot': 1, 'Fractured_Hand': 2, 'Fractured_Hindlimb': 3, 'Normal_Arm': 4, 'Normal_Foot': 5, 'Normal_Hand': 6, 'Normal_Hindlimb': 7}
-            # predicted_class = list(class_indices.keys())[np.argmax(predictions)]
             Predic_class=prediction[0]
             return render_template("home.html", user=current_user,form=form,file_name=file_name,file_name1=file_name1, lt=lt, ut=ut,Predic_class=Predic_class)  # render the home template
         else:
