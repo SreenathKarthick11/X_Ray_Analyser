@@ -28,4 +28,5 @@ Worked on Image Preprocessing and Machine Learning Models such
 as SVM , DecisionTree , Gaussian Naive Bayes , k-NN (k-Nearest Neighbours) , Random Forests .
 
 # Report
-check the detailed report from this link: https://drive.google.com/file/d/1g2Z9KwsHBWoOoUL_qS_cnm5n74_d11Bc/view?usp=drive_link
+check the detailed report from this link: https://drive.google.com/drive/folders/1sFYm-85apQrL38gZnGmxgfCr8kKsUYHG?usp=sharing
+
